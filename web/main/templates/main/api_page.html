@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load static widget_tweaks %}
+
+{% block content %}
+
+<h1>Obtenir des informations sur les cryptos</h1>
+
+<form action="." method="post">
+
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="submit">
+
+</form>
+
+{% if data %}
+    <p>price = {{data.price|floatformat:2}}</p>
+    <p>volume_2h = {{data.volume_24h|floatformat:2}}</p>
+    <p>data.market_cap_dominance = {{data.market_cap_dominance|floatformat:2}}</p>
+    <p>data.percent_change_7d = {{data.percent_change_7d|floatformat:2}}</p>
+{% elif error %}
+    <p id="error">Votre requête comporte une erreur: {{error}}</p>
+{% endif %}
+
+{% endblock content %}

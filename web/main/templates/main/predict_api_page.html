@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load static widget_tweaks %}
+
+{% block content %}
+
+<h1>Prédiction sur les fleurs d'Iris</h1>
+
+<form action="." method="post">
+
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="prediction">
+
+</form>
+
+{% if data %}
+    <p>predicted class = {{data.category}}</p>
+{% elif error %}
+    <p id="error">Votre requête comporte une erreur: {{error}}</p>
+{% endif %}
+
+{% endblock content %}
