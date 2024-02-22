@@ -11,7 +11,7 @@ from .forms import CryptoApiForm, FlowerFeaturesForm
 
 @login_required
 def predict_api_page(request):
-    url = "http://localhost:8000/predict"
+    url = "http://api:8001/predict"
     session = Session()
 
     # If this is a POST request we need to process the form data
