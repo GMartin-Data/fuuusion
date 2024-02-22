@@ -96,7 +96,6 @@ POSTGRES_AVAIL = all(
 )
 
 POSTGRES_RDY = int(os.getenv('POSTGRES_RDY'))
-print(">"*10, POSTGRES_RDY)
 
 if POSTGRES_AVAIL and POSTGRES_RDY:
     DATABASES = {
